@@ -19,7 +19,7 @@ def ingresar(request):
 	if not request.user.is_anonymous():
 		return HttpResponseRedirect('/privado')
 	if request.method == 'POST':
-		formulario = AuthenticationForm(request.POST)
+		formulario = AuthenticationForm(data=request.POST)
 		if formulario.is_valid():
 			usuario = request.POST['username']
 			clave = request.POST['password']
@@ -106,11 +106,14 @@ def inicio(request):
 		return render_to_response('busqueda.html', {'formulario': BuscarForm()}, context_instance=RequestContext(request))
 
 def buscar(request):
-    formulario = BuscarForm(request.GET)
-    if formulario.is_valid():
-        query = formulario.cleaned_data['query']
-        resultados = Decodificador.objects.filter(OrExpression().interpret(query))
-        print(query)
+	formulario = BuscarForm(request.GET)
+	if formulario.is_valid():
+		query = formulario.cleaned_data['query']
+		resultados = Decodificador.objects.filter(OrExpression().interpret(query))
+		print(query)
+	else:
+		resultados = {}
+		formulario = BuscarForm()
 	return render_to_response('busqueda.html', {'formulario': formulario, 'resultados': resultados}, context_instance=RequestContext(request))
 
 #def handle_uploaded_file(f, instance):
