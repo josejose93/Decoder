@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pagina</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Estilos-->
+	<link href="{{STATIC_URL}}css/estilos3.css" rel="stylesheet">
+</head>
+
+<body >
+	<nav id="nav">
+		<ul class="container">
+			<li>
+				<a href="#">Iniciar Sesión</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="wrapper wrapper-style2">
+		<article class="container small" id="contact">
+			<header>
+				<h1>Búsqueda</h1>
+			</header>
+			<div>
+				<form id='formulario' method='GET' action='/buscar'>
+					<div id="centerform">
+						<table>{{formulario}}</table>
+					</div><br>
+					<input class="button forn-button-submit" type='submit' value='Buscar'/>	
+				</form>
+			</div>
+            <div>
+                <table>
+                <tr><th>Autor</th> <th>Imagen</th> </tr>
+                {% for item in resultados %}
+                    <td>{{item.usuario}}</td>
+                    <td><a href="/media/{{item.imagen}}">{{item.titulo}}</a></td>
+                {% endfor %}
+                </table>
+            </div>
+		</article>
+	</div>
+</body>
+</html>

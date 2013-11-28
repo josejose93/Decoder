@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pagina</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Estilos-->
+	<link href="{{STATIC_URL}}css/estilos3.css" rel="stylesheet">
+</head>
+
+<body >
+	<nav id="nav">
+		<ul class="container">
+			<li>
+				<a href="#">Iniciar Sesión</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="wrapper wrapper-style2">
+		<article class="container small" id="contact">
+			<header>
+				<h1>Iniciar Sesión</h1>
+				<span>Ingresa a "mipagina.com"</span>
+			</header>
+			<div>
+				<form id='formulario' method='post' action=''>{% csrf_token %}
+					<div id="centerform">
+						<table>{{formulario}}</table>
+					</div><br>
+					<input class="button forn-button-submit" type='submit' value='Entrar'/>	
+				</form>
+			</div>
+		</article>
+	</div>
+</body>
+</html>

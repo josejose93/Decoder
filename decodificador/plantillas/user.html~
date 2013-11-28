@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Usuario</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Estilos-->
+	<link href="../css/estilos3.css" rel="stylesheet" type="text/css">
+</head>
+
+<body style>
+	<nav id="nav">
+		<ul class="container">
+			<li>
+				<a href="#">Agregar Foto</a>
+			</li>
+			<li>
+				<a href="#galeria">Ver Galería</a>
+			</li>
+			<li>
+				<a href="#decodificar">Decodificar Foto</a>
+			</li>
+			<li>
+				<a href="#">Cerrar Sesión</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="wrapper wrapper-style1">
+		<article class="container small" id="agregarfoto">
+			<header>
+				<h1>Agregar Foto</h1>
+				<span>Selecciona tu foto</span>
+			</header>
+			<div id="centerform">
+				<input type="file" id="foto" name="foto" class="rm-input" onchange="selectedFile();">
+			</div>
+		</article>
+	</div>
+	<div class="wrapper wrapper-style3">
+		<article id="galeria">
+			<header>
+				<h2>Mira tu galería de fotos.</h2>
+				<span>
+				"Aquí puedes ver toda tu increíble galería de fotos."
+				</span>
+			</header>
+			<div id="centertable">
+				<table border="0px">
+					<tr>
+						<td>Nombre</td>
+						<td>Foto</td>
+					</tr>
+					<tr>
+						<td>foto 1</td>
+						<td><a href="sitiodeimagen"><img src="sitiodeimagen.jpg" style="width: 220px; height: 100px;"> </a></td>
+					</tr>
+					<tr>
+						<td>foto 2</td>
+						<td><a href="sitiodeimagen"><img src="sitiodeimagen.jpg" style="width: 220px; height: 100px;"> </a></td>
+					</tr>
+					<tr>
+						<td>foto 3</td>
+						<td><a href="sitiodeimagen"><img src="sitiodeimagen.jpg" style="width: 220px; height: 100px;"> </a></td>
+					</tr>
+				</table>
+			</div>
+		</article>
+	</div>
+	<div class="wrapper wrapper-style4">
+		<article id="decodificar" class="container samll">
+			<header>
+				<h2>Decodificar</h2>
+				<span>Decodifica tu foto</span>
+			</header>
+		</article>
+	</div>
+</body>
+</html>

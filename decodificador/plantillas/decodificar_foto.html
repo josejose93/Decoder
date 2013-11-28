@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Usuario</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Estilos-->
+	<link href="{{STATIC_URL}}css/estilos3.css" rel="stylesheet">
+</head>
+
+<body style>
+	<nav id="nav">
+		<ul class="container">
+			<li>
+				<a href="/inicio">Inicio</a>
+			</li>
+			<li>
+				<a href="#">Agregar Foto</a>
+			</li>
+			<li>
+				<a href="#galeria">Ver Galería</a>
+			</li>
+			<li>
+				<a href="#decodificar">Decodificar Foto</a>
+			</li>
+			<li>
+				<a href="/cerrar">Cerrar Sesión</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="wrapper wrapper-style1">
+		<article class="container small" id="agregarfoto">
+			<header>
+				<h1>Decodifica tu foto</h1>
+				<span>Selecciona tu foto</span>
+			</header>
+			<div id="centerform">
+				<form id = 'formulario' method = 'post' action='' enctype="multipart/form-data">{% csrf_token %}{{formulario.as_p}}
+				<input class="button forn-button-submit" type='submit' value='Descarga'/>
+				</form>
+			</div>
+		</article>
+	</div>
+</body>
+</html>
