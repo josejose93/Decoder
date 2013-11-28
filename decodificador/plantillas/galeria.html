@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pagina</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Estilos-->
+	<link href="{{STATIC_URL}}css/estilos3.css" rel="stylesheet">
+</head>
+
+<body >
+	<nav id="nav">
+		<ul class="container">
+			<li>
+				<a href="#">Agregar Foto</a>
+			</li>
+			<li>
+				<a href="/inicio/galeria">Ver Galería</a>
+			</li>
+			<li>
+				<a href="/inicio/decodificar">Decodificar Foto</a>
+			</li>
+			<li>
+				<a href="/cerrar">Cerrar Sesión</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="wrapper wrapper-style2">
+		<article class="container small" id="contact">
+			<header>
+				<h1>Mi galería</h1>
+			</header>
+            <div>
+                <table>
+                <tr><th>Imagen</th> <th>Decodificar</th> </tr>
+                {% for item in resultados %}
+                <tr>
+                    <td><a href="/media/{{item.imagen}}">{{item.titulo}}</a></td>
+                    <td><a class="btn" href="/inicio/decogal/{{item.id}}">Decodificar</a></td>
+                </tr>
+                {% endfor %}
+                </table>
+            </div>
+		</article>
+	</div>
+</body>
+</html>

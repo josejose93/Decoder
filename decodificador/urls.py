@@ -16,7 +16,9 @@ urlpatterns = patterns('',
     url(r'^inicio/decodificar/$', 'principal.views.recuperar_archivo'),  
     url(r'^privado/$', 'principal.views.privado'),
     url(r'^cerrar/$', 'principal.views.cerrar'),  
-    url(r'^buscar/$', 'principal.views.buscar'),  
+    url(r'^buscar/$', 'principal.views.buscar'),
+    url(r'^inicio/galeria/$', 'principal.views.galeria'),
+    url(r'^inicio/decogal/(?P<id>\d+)/$', 'principal.views.recuperar_mio'),  
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

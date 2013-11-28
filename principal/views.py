@@ -116,6 +116,31 @@ def buscar(request):
 		formulario = BuscarForm()
 	return render_to_response('busqueda.html', {'formulario': formulario, 'resultados': resultados}, context_instance=RequestContext(request))
 
+def galeria(request):
+	if request.user.is_authenticated():
+		resultados = Decodificador.objects.filter(usuario=request.user)
+		return render_to_response('galeria.html', {'resultados': resultados}, context_instance=RequestContext(request))
+
 #def handle_uploaded_file(f, instance):
 #    instance.field.save('name_slug.ext', f, True)
 #    instance.save()
+
+def recuperar_mio(request, id):
+	if request.user.is_authenticated():
+		imagen_entry = Decodificador.objects.get(id = id)
+		imgpath = default_storage.path(imagen_entry.imagen)
+		decode = Decoder()
+		savepath = default_storage.path('tmp/decoded')
+		archivo = decode(str(default_storage.path(imgpath)), str(savepath))
+		size = archivo.size()
+		extension = archivo.get_extension()
+		savepath += '.' + extension
+		archivo = default_storage.open(savepath)
+		data = archivo.read()
+		archivo.close()
+		response = HttpResponse(data, content_type='aplication/octet-stream')
+		response['Content-Length']= size
+		response['Content-Disposition'] = 'attachment; filename="descarga.'+extension+'"'
+		default_storage.delete(savepath)
+		return response 
+		
