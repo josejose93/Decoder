@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'decodificador.views.home', name='home'),
     # url(r'^decodificador/', include('decodificador.foo.urls')),
+    url(r'^$', 'principal.views.inicio'),
     url(r'^inicio/$', 'principal.views.inicio'),
     url(r'^ingresar/$', 'principal.views.ingresar'),
     url(r'^inicio/subir/$', 'principal.views.nuevo_archivo'),
