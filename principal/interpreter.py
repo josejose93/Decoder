@@ -29,7 +29,7 @@ class AndExpression(SearchExpression):
         if pos == -1:
             return leafexpr.interpret(expr)
         else:
-            return leafexpr.interpret(expr[:pos]) & self.interpret(expr[pos+4:])
+            return leafexpr.interpret(expr[:pos]) & self.interpret(expr[pos+5:])
 
 
 class OrExpression(SearchExpression):

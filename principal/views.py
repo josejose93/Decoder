@@ -99,9 +99,9 @@ def recuperar_archivo(request):
 
 def inicio(request):
 	if request.user.is_authenticated():
-		usuario = request.user
-		ini = Decodificador.objects.all()
-		return render_to_response('inicio.html', {'deco':ini, 'usuario':usuario}, context_instance=RequestContext(request))
+	    usuario = request.user
+	    ini = Decodificador.objects.all()
+	    return render_to_response('inicio.html', {'deco':ini, 'usuario':usuario}, context_instance=RequestContext(request))
 	else:
 		return render_to_response('busqueda.html', {'formulario': BuscarForm()}, context_instance=RequestContext(request))
 
